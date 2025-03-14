@@ -1,0 +1,62 @@
+{
+  "zwierzęta": [
+    { "secret": "ornitorhynchus" },
+    { "secret": "aksolotl" },
+    { "secret": "długoszpar" },
+    { "secret": "fenek" },
+    { "secret": "szczurzyca" },
+    { "secret": "niedźwiedzica" },
+    { "secret": "dziobak" },
+    { "secret": "mantokora" },
+    { "secret": "mrówkojad" },
+    { "secret": "koati" }
+  ],
+  "rośliny": [
+    { "secret": "strelicja" },
+    { "secret": "nepenthes" },
+    { "secret": "wawrzyniec" },
+    { "secret": "dzbanecznik" },
+    { "secret": "rojniki" },
+    { "secret": "rzodkiewnik" },
+    { "secret": "welwiczja" },
+    { "secret": "tasmannia" },
+    { "secret": "rozchodnik" },
+    { "secret": "narcyzowce" }
+  ],
+  "kraje": [
+    { "secret": "Madagaskar" },
+    { "secret": "Kazachstan" },
+    { "secret": "Uzbekistan" },
+    { "secret": "Turkmenistan" },
+    { "secret": "Papua-Nowa Gwinea" },
+    { "secret": "Sri Lanka" },
+    { "secret": "Kirgistan" },
+    { "secret": "Tadżykistan" },
+    { "secret": "Surinam" },
+    { "secret": "Mikronezja" }
+  ],
+  "filmy": [
+    { "secret": "Antychryst" },
+    { "secret": "Wyspa Tajemnic" },
+    { "secret": "Requiem dla snu" },
+    { "secret": "Drabina Jakubowa" },
+    { "secret": "Pamiętnik" },
+    { "secret": "Władca Pierścieni" },
+    { "secret": "Nietykalni" },
+    { "secret": "Młody Frankenstein" },
+    { "secret": "Siedem samurajów" },
+    { "secret": "Człowiek-słoń" }
+  ],
+  "technologia": [
+    { "secret": "superkomputer" },
+    { "secret": "kwantowa kryptografia" },
+    { "secret": "nanotechnologia" },
+    { "secret": "sztuczna inteligencja" },
+    { "secret": "cyberbezpieczeństwo" },
+    { "secret": "elektromagnetyzm" },
+    { "secret": "fotowoltaika" },
+    { "secret": "biomimetyka" },
+    { "secret": "synteza molekularna" },
+    { "secret": "robot chirurgiczny" }
+  ]
+}

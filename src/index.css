@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Grandstander", cursive;
+  color: #fff;
+}
+
+.app {
+  background: linear-gradient(#4c1d95, #2e1065);
+  height: 100vh;
+  margin: 1.2rem;
+  border-radius: 33px;
+  padding: 3.2rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.app::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://cdn.pixabay.com/photo/2021/08/03/23/14/forest-6520674_1280.png");
+  background-size: cover;
+  background-position: center;
+  z-index: -1; /* Pseudo-element znajduje się za wszystkimi innymi elementami */
+  opacity: 0.2; /* Przezroczystość zdjęcia tła */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar > div:first-child {
+  display: flex;
+  align-items: center;
+  font-size: 4.4rem;
+  gap: 2.4rem;
+}
+
+.navbar-menu-btn {
+  background: linear-gradient(#f472b6, #a78bfa);
+  border: none;
+  box-shadow: 0 0 7px 3px #250d5149;
+  border-radius: 100px;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.navbar-menu-btn:hover,
+.navbar-menu-btn:active {
+  box-shadow: 0 0 7px 7px rgba(37, 13, 81, 0.4);
+}
+
+.navbar-health {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.health-status-bar {
+  width: 16rem;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  height: 1.6rem;
+  border-radius: 100px;
+  box-shadow: 0 0 7px 3px #250d5149;
+}
+
+.health-status-bar > div {
+  width: 16rem;
+  background-color: #a78bfa;
+  height: 0.8rem;
+  margin: 0 0.4rem;
+  border-radius: inherit;
+  transition: all 0.3s;
+}
+
+.game-panel {
+  margin-top: 12.8rem;
+}
+
+.secret {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.secret-word {
+  display: flex;
+  gap: 0.8rem;
+  font-weight: 600;
+}
+
+.letter,
+.empty-letter {
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 1.6rem;
+  font-size: 4.4rem;
+}
+
+.letter {
+  color: #fff;
+  background-color: #4f46e5;
+}
+
+.empty-letter {
+  color: transparent;
+  background-color: rgba(78, 70, 229, 0.4);
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 1.2rem;
+  font-size: 2.4rem;
+  width: 60rem;
+  margin: 6.4rem auto;
+  justify-items: center;
+  align-items: center;
+  font-weight: 600;
+}
+
+.keyboard > div {
+  color: #2e1065;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 6rem;
+  text-align: center;
+  padding: 1.2rem 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.keyboard > div:hover,
+.keyboard > div:active {
+  transform: scale(1.15);
+}
+
+.keyboard > .selected {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal {
+  z-index: 100000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #2e1065;
+  background-color: #fff;
+  padding: 6.4rem 8rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 13px;
+  text-align: center;
+}
+
+.overlay {
+  background-color: rgba(46, 16, 101, 0.6);
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+  top: 0;
+  backdrop-filter: blur(3px);
+}
+
+.modal > h1 {
+  font-size: 4.4rem;
+}
+
+.modal > p {
+  font-size: 1.6rem;
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 1.2rem 6.4rem;
+  transition: all 0.3s;
+  font-size: 2.4rem;
+  font-family: inherit;
+}
+
+.button-play-again {
+  margin-top: 3.2rem;
+  background: #4c1d95;
+  color: #fff;
+}
+
+.button:hover,
+.button:active {
+  opacity: 0.8;
+}
+
+.menu {
+  background-color: #200b47;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  border-radius: 33px;
+  width: 50rem;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu > div {
+  font-size: 3.2rem;
+  cursor: pointer;
+  margin-top: 4.4rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s;
+}
+
+.menu > div:hover,
+.menu > div:active {
+  border-color: #fff;
+}
+
+.input-own-secret {
+  margin-top: 2.4rem;
+  font-size: 2.4rem;
+  border: none;
+  border-bottom: 1px solid #2e1065;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding: 0.4rem 0.2rem;
+  text-align: center;
+  color: #2e1065;
+  font-family: inherit;
+}
+
+.input-own-secret:focus {
+  background-color: rgba(46, 16, 101, 0.1);
+  outline: none;
+  box-shadow: 0 0 -3px red;
+}
