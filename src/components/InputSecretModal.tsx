@@ -1,26 +1,17 @@
-import useKey from "../useKey";
+import useHangman from "../hooks/useHangman";
+import useKey from "../hooks/useKey";
 import Button from "./Button";
 import Modal from "./Modal";
 
 type PropsType = {
-  newSecret: string;
-  setNewSecret: React.Dispatch<React.SetStateAction<string>>;
   inputSecretEl: React.RefObject<HTMLInputElement | null>;
   onSubmit: () => void;
   onClose: () => void;
-  setNewCategory: React.Dispatch<React.SetStateAction<string>>;
-  newCategory: string;
 };
 
-function InputSecretModal({
-  newSecret,
-  setNewSecret,
-  inputSecretEl,
-  onSubmit,
-  onClose,
-  setNewCategory,
-  newCategory,
-}: PropsType) {
+function InputSecretModal({ inputSecretEl, onSubmit, onClose }: PropsType) {
+  const { state, dispatch, REDUCER_ACTIONS } = useHangman();
+
   useKey("enter", () => {
     if (document.activeElement === inputSecretEl.current) return;
     if (!inputSecretEl.current) return;
@@ -29,8 +20,7 @@ function InputSecretModal({
 
   useKey("escape", () => {
     onClose();
-    setNewSecret("");
-    setNewCategory("");
+    dispatch({ type: REDUCER_ACTIONS.RESET_INPUTS });
   });
 
   return (
@@ -38,8 +28,13 @@ function InputSecretModal({
       <input
         type="text"
         className="input-own-secret"
-        value={newSecret}
-        onChange={(e) => setNewSecret(e.target.value)}
+        value={state.newSecret}
+        onChange={(e) =>
+          dispatch({
+            type: REDUCER_ACTIONS.SET_NEW_SECRET,
+            payload: e.target.value || " ",
+          })
+        }
         ref={inputSecretEl}
         placeholder="hasło"
       />
@@ -47,8 +42,13 @@ function InputSecretModal({
         type="text"
         placeholder="kategoria"
         className="input-own-secret"
-        value={newCategory}
-        onChange={(e) => setNewCategory(e.target.value)}
+        value={state.newCategory}
+        onChange={(e) =>
+          dispatch({
+            type: REDUCER_ACTIONS.SET_NEW_CATEGORY,
+            payload: e.target.value || " ",
+          })
+        }
       />
       <Button
         bgColor={"#4c1d95"}

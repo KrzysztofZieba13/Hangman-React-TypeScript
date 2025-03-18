@@ -1,7 +1,4 @@
-type PropsType = {
-  secret: string;
-  guess: string[];
-};
+import useHangman from "../hooks/useHangman";
 
 type PropsWordType = {
   word: string;
@@ -12,11 +9,13 @@ type LetterProps = {
   letter: string;
 };
 
-function SecretWord({ secret, guess }: PropsType) {
+function SecretWord() {
+  const { state } = useHangman();
+
   return (
     <div className="secret">
-      {secret.split(" ").map((word, wordIndex) => (
-        <Word key={wordIndex} word={word} guess={guess} />
+      {state.secret.split(" ").map((word, wordIndex) => (
+        <Word key={wordIndex} word={word} guess={state.guess} />
       ))}
     </div>
   );

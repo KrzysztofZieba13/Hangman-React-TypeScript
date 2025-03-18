@@ -1,3 +1,5 @@
+import useHangman from "../hooks/useHangman";
+
 const letter_array: string[] = [
   "a",
   "ą",
@@ -36,16 +38,13 @@ const letter_array: string[] = [
   "ż",
 ];
 
-type PropsType = {
-  onGuess: (letter: string) => void;
-  guess: string[];
-};
+function Keyboard() {
+  const { state, onGuess } = useHangman();
 
-function Keyboard({ onGuess, guess }: PropsType) {
   return (
     <div className="keyboard">
       {letter_array.map((letter, i) =>
-        guess.includes(letter.toUpperCase()) ? (
+        state.guess.includes(letter.toUpperCase()) ? (
           <div className="selected" key={i}>
             {letter.toUpperCase()}
           </div>

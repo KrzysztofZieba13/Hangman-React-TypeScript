@@ -1,13 +1,12 @@
+import useHangman from "../hooks/useHangman";
 import Modal from "./Modal";
 
-type PropsType = {
-  onPlayAgain: () => void;
-};
+function WinModal() {
+  const { dispatch, REDUCER_ACTIONS } = useHangman();
 
-function WinModal({ onPlayAgain }: PropsType) {
   return (
     <Modal
-      onClose={onPlayAgain}
+      onClose={() => dispatch({ type: REDUCER_ACTIONS.RESET })}
       title="Wygrana! 🎉"
       message="Gratulacje! Hasło zostało odgadnięte 😀"
     ></Modal>

@@ -1,16 +1,13 @@
+import useHangman from "../hooks/useHangman";
 import Modal from "./Modal";
 
-interface PropsType {
-  secret: string;
-  onPlayAgain: () => void;
-}
-
-function DefeatModal({ secret, onPlayAgain }: PropsType) {
+function DefeatModal() {
+  const { state, dispatch, REDUCER_ACTIONS } = useHangman();
   return (
     <Modal
-      onClose={onPlayAgain}
+      onClose={() => dispatch({ type: REDUCER_ACTIONS.RESET })}
       title="Przegrana 😥"
-      message={`Poprawne hasło: ${secret}`}
+      message={`Poprawne hasło: ${state.secret}`}
     ></Modal>
   );
 }
