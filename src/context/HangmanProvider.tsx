@@ -31,7 +31,7 @@ const hangmanDummyData = {
       "welwiczja",
       "tasmannia",
       "rozchodnik",
-      "narcyzowiec",
+      "narcyzow",
     ],
     kraje: [
       "Madagaskar",
